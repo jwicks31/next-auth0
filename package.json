@@ -1,0 +1,27 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "node src/server/index.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node src/server/index.js"
+  },
+  "dependencies": {
+    "cookie-parser": "1.4.4",
+    "cors": "2.8.5",
+    "express": "4.16.4",
+    "express-session": "1.15.6",
+    "isomorphic-unfetch": "3.0.0",
+    "js-cookie": "2.2.0",
+    "jsonwebtoken": "8.4.0",
+    "next": "^8.0.0",
+    "passport": "0.4.0",
+    "passport-auth0": "1.1.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  },
+  "devDependencies": {
+    "dotenv": "6.2.0",
+    "dotenv-webpack": "1.7.0",
+    "now-env": "3.1.0"
+  }
+}

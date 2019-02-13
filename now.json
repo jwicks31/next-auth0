@@ -1,0 +1,12 @@
+{
+  "alias": "jessewicks",
+  "env": {
+    "AUTH0_CLIENT_ID": "@auth0-client-id",
+    "AUTH0_DOMAIN": "@auth0-domain",
+    "AUTH0_CLIENT_SECRET": "@auth0-client-secret"
+  },
+  "version": 1,
+  "github": {
+    "enabled": false
+  }
+}
