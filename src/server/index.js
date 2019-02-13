@@ -13,9 +13,11 @@ const userInViews = require('../middleware/user-in-views');
 const secured = require('../middleware/secured')
 const cookieParser = require('cookie-parser')
 
+const secret = 'NUADQRQOYH';
+
 // config express-session
 const sess = {
-  secret: 'NUADQRQOYH',
+  secret,
   cookie: {},
   resave: false,
   saveUninitialized: true
@@ -51,8 +53,7 @@ const prepareNextApp = () => {
       const server = express();
       server.use(cors());
       server.use(session(sess));
-      server.use(cookieParser());
-
+      server.use(cookieParser(secret));
 
       passport.use(strategy);
       server.use(passport.initialize());
@@ -82,6 +83,13 @@ const prepareNextApp = () => {
             if (err) { return next(err); }
             const returnTo = req.session.returnTo;
             delete req.session.returnTo;
+            const { _json, _raw, ...userProfile } = user
+            const options = {
+              maxAge: 1000 * 60 * 600, // would expire after 15 minutes
+              httpOnly: true, // The cookie only accessible by the web server
+              signed: false // Indicates if the cookie should be signed
+            }
+            res.cookie('user', userProfile, options);
             res.redirect(returnTo || '/user');
           });
         })(req, res, next);

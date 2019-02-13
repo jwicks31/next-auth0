@@ -9,14 +9,20 @@ class MyApp extends App {
       isLoading: true
     };
   }
-  
-  static async getInitialProps({ Component, query, ctx }) {
+
+  static async getInitialProps({ Component, ctx }) {
+    const { store, isServer, query, req } = ctx;
     let pageProps = {};
+
+    if (isServer) {
+      console.log(req.cookies);
+    }
+
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return { isServer, pageProps };
   }
 
   render() {
