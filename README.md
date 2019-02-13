@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
 
+## Auth0
+
+This is a starter app with Auth0 authentication implemented on the Server Side. 
+
+TODO: Enable Client Side Auth Support.
+
 ## Available Scripts
 
 In the project directory, you can run:
